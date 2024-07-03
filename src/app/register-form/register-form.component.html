@@ -1,0 +1,48 @@
+
+<div class="w-[100%] flex justify-center items-center">
+<div *ngIf="loginsuccess else elseBlock" >
+  <button class="p-4 px-6 text-[#ffffff] bg-[#4e4c4c] active:bg-[#212121]" (click)="handlelogout()">Logout</button>
+</div>
+<ng-template #elseBlock>
+
+<button class="p-4 px-6 text-[#ffffff] bg-[#4e4c4c] active:bg-[#212121]" (click)="handlesignup()"> SignUp</button>
+  <button class="p-4 px-6 text-[#ffffff] bg-[#4e4c4c] active:bg-[#212121]" (click)="handlesignin()">Login</button>
+</ng-template>
+</div>
+<div *ngIf="signup" class="w-[100%] flex flex-col justify-center items-center justify-items-center p-10">
+<h1>SignUp Form </h1>
+<form #basicForm="ngForm" (ngSubmit)="getData(basicForm.value)">
+<input class="input" type="text" name="username" ngModel placeholder="Enter username">
+<br />  <br />
+<input class="input" type="text" name="password" ngModel placeholder="Password">
+<br />  <br />
+<input class="input" type="phone" name="mobilenumber" ngModel placeholder="Enter Mobile Number">
+<br />  <br />
+<button class="bg-[green] text-[white] rounded-md p-4" >Register</button>
+</form>
+</div>
+
+
+<div *ngIf="signin" class="w-[100%] flex flex-col justify-center items-center p-10">
+<h1>Login Form</h1>
+<form class="flex flex-col gap-4" #basicLoginForm="ngForm" (ngSubmit)="checkData(basicLoginForm.value)">
+    <input class="loginInput" type="text" placeholder="Enter Username" ngModel name="username">
+    <input class="loginInput" type="text" placeholder="Enter Password"  ngModel name="password">
+    <button class="loginButton text-[white]">Login</button>
+</form>
+</div>
+
+
+
+
+
+<div *ngIf="loginsuccess">
+  <h1 class="text-[red]">Hello {{name}}</h1>
+    <!-- <textarea class="textInput"></textarea>
+    <section>
+        <div class="example-button-row">
+          <button mat-raised-button>Basic</button>
+        </div>
+      </section> -->
+      <app-task-list></app-task-list>
+</div>

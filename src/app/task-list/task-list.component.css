@@ -1,0 +1,10 @@
+.inputArea{
+   margin-left: 10px;
+    width: 800px;
+    height:200px;
+}
+.basicBtn{
+    padding:10px;
+    margin-left:10px;
+    background-color: green;
+}
